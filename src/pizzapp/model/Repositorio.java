@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.*;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class Repositorio {
@@ -26,7 +27,27 @@ public class Repositorio {
     }
 
     public void cadastra(Pizza p){
-        cadastro.add(p);
+        try{
+            Connection con = FabricaConexao.getConnection();
+
+            PreparedStatement stm = con.prepareStatement("INSERT INTO PIZZAS(SABOR,VALOR) VALUES (?,?)");
+
+            stm.setString(1,p.getNome());
+            stm.setDouble(2,p.getValor());
+
+            stm.executeUpdate();
+
+            stm.close();
+            con.close();
+
+            cadastro.add(p);
+
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+
     }
 
 
@@ -62,6 +83,37 @@ public class Repositorio {
     }
 
     public ObservableList listaCadastro(){
+
+        cadastro.clear();
+
+        try{
+
+            Connection con = FabricaConexao.getConnection();
+
+            Statement stm = con.createStatement();
+
+            ResultSet res = stm.executeQuery("SELECT * FROM PIZZAS");
+
+            while(res.next()){
+                int id = res.getInt("ID");
+                String sabor = res.getString("SABOR");
+                Double valor = res.getDouble("VALOR");
+
+                Pizza p = new Pizza(id,sabor,valor);
+
+                cadastro.add(p);
+            }
+
+            res.close();
+            stm.close();
+            con.close();
+
+
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
         return cadastro;
     }
 

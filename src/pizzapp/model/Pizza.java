@@ -4,12 +4,29 @@ import java.io.Serializable;
 
 public class Pizza implements Serializable {
 
+
+    private int id;
     private String nome;
     private double valor;
 
+
     public Pizza(String nome, double valor) {
+        this(-1,nome,valor);
+    }
+
+    public Pizza(int id,String nome, double valor){
+        this.id = id;
         this.nome = nome;
         this.valor = valor;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
