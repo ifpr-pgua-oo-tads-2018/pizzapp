@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Pizzaria {
 
@@ -15,6 +16,8 @@ public class Pizzaria {
     private ObservableList<Cliente> clientes;
 
     private Pedido pedidoAtual = null;
+
+    private PizzaDAO pizzaDAO = new SqlitePizzaDAO();
 
 
     private static Pizzaria instance = new Pizzaria();
@@ -29,27 +32,14 @@ public class Pizzaria {
         return instance;
     }
 
-    public void cadastra(Pizza p){
-        try{
-            Connection con = FabricaConexao.getConnection();
+    public void cadastra(String nome, double valor) throws SQLException{
+        Pizza p = new Pizza();
+        p.setSabor(nome);
+        p.setValor(valor);
 
-            PreparedStatement stm = con.prepareStatement("INSERT INTO PIZZAS(SABOR,VALOR) VALUES (?,?)");
+        long id = pizzaDAO.insere(p);
 
-            stm.setString(1,p.getNome());
-            stm.setDouble(2,p.getValor());
-
-            stm.executeUpdate();
-
-            stm.close();
-            con.close();
-
-            cadastro.add(p);
-
-
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-
+        p.setId((int)id);
 
     }
 
@@ -109,71 +99,21 @@ public class Pizzaria {
         return pedidoAtual.getValor();
     }
 
-    public ObservableList listaCadastro(){
+    public ObservableList listaCadastro() throws SQLException{
 
         cadastro.clear();
 
-        try{
-
-            Connection con = FabricaConexao.getConnection();
-
-            Statement stm = con.createStatement();
-
-            ResultSet res = stm.executeQuery("SELECT * FROM PIZZAS");
-
-            while(res.next()){
-                int id = res.getInt("ID");
-                String sabor = res.getString("SABOR");
-                Double valor = res.getDouble("VALOR");
-
-                Pizza p = new Pizza(id,sabor,valor);
-
-                cadastro.add(p);
-            }
-
-            res.close();
-            stm.close();
-            con.close();
-
-
-
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+        cadastro.addAll(pizzaDAO.buscaTodos());
 
         return cadastro;
     }
 
-    public ObservableList buscaPizza(String texto){
+    public ObservableList buscaPizza(String texto) throws SQLException{
         cadastro.clear();
 
-        try{
+        List<Pizza> lista = pizzaDAO.buscaAtributo(PizzaAtributoBusca.SABOR,texto);
 
-            Connection con = FabricaConexao.getConnection();
-
-            PreparedStatement stm = con.prepareStatement("SELECT * FROM PIZZAS where SABOR like ?");
-
-            stm.setString(1,"%"+texto+"%");
-
-            ResultSet res = stm.executeQuery();
-
-            while(res.next()){
-                int id = res.getInt("ID");
-                String sabor = res.getString("SABOR");
-                Double valor = res.getDouble("VALOR");
-
-                Pizza p = new Pizza(id,sabor,valor);
-
-                cadastro.add(p);
-            }
-
-            res.close();
-            stm.close();
-            con.close();
-
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+        cadastro.addAll(lista);
 
         return cadastro;
     }

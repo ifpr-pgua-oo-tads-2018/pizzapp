@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b60183bc-3556-464d-bd06-25ce7e3a8d90" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pizzapp/model/Cliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizzapp/model/Pizzaria.java" afterDir="false" />
+    <list default="true" id="b60183bc-3556-464d-bd06-25ce7e3a8d90" name="Default" comment="cadastro de clientes">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-dbutils-1.7.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pizzapp/model/PizzaAtributoBusca.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pizzapp/model/PizzaDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pizzapp/model/SqlitePizzaDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PizzApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PizzApp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/control/Principal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/control/Principal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/model/Pizza.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/model/Pizza.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/model/Repositorio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PizzApp/view/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PizzApp/view/principal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pizzapp.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/pizzapp.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pizzas.bin" beforeDir="false" afterPath="$PROJECT_DIR$/pizzas.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/view/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/view/principal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pizzapp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pizzapp/control/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/control/Principal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pizzapp/model/Repositorio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pizzapp/model/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/model/Pizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pizzapp/model/Pizzaria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/model/Pizzaria.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,11 +27,18 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="CadastroDeCliente" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -46,13 +53,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/commons-dbutils-1.7.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunDashboard">
@@ -109,6 +116,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -128,7 +137,7 @@
       <workItem from="1565002682305" duration="357000" />
       <workItem from="1565023871999" duration="72000" />
       <workItem from="1565024053313" duration="31000" />
-      <workItem from="1565261414418" duration="344000" />
+      <workItem from="1565261414418" duration="3974000" />
     </task>
     <task id="LOCAL-00001" summary="código com banco de dados.">
       <created>1564671235685</created>
@@ -137,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564671235685</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="cadastro de clientes">
+      <created>1565261806264</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1565261806264</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,92 +174,46 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="código com banco de dados." />
-    <option name="LAST_COMMIT_MESSAGE" value="código com banco de dados." />
+    <MESSAGE value="cadastro de clientes" />
+    <option name="LAST_COMMIT_MESSAGE" value="cadastro de clientes" />
   </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>PizzApp</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="WindowStateProjectService">
+    <state x="528" y="166" width="378" height="579" key="#com.intellij.ide.util.MemberChooser" />
+    <state x="528" y="166" width="378" height="579" key="#com.intellij.ide.util.MemberChooser/1440.900/1440.900" />
+    <state x="222" y="24" width="989" height="863" key="CommitChangelistDialog2" />
+    <state x="222" y="24" width="989" height="863" key="CommitChangelistDialog2/1440.900/1440.900" />
+    <state x="503" y="170" width="739" height="491" key="FileChooserDialogImpl" />
+    <state x="503" y="170" width="739" height="491" key="FileChooserDialogImpl/1440.900/1440.900" />
+    <state width="1394" height="225" key="GridCell.Tab.0.bottom" />
+    <state width="1394" height="225" key="GridCell.Tab.0.bottom/1440.900/1440.900" />
+    <state width="1394" height="225" key="GridCell.Tab.0.center" />
+    <state width="1394" height="225" key="GridCell.Tab.0.center/1440.900/1440.900" />
+    <state width="1394" height="225" key="GridCell.Tab.0.left" />
+    <state width="1394" height="225" key="GridCell.Tab.0.left/1440.900/1440.900" />
+    <state width="1394" height="225" key="GridCell.Tab.0.right" />
+    <state width="1394" height="225" key="GridCell.Tab.0.right/1440.900/1440.900" />
+    <state width="1394" height="281" key="GridCell.Tab.1.bottom" />
+    <state width="1394" height="281" key="GridCell.Tab.1.bottom/1440.900/1440.900" />
+    <state width="1394" height="281" key="GridCell.Tab.1.center" />
+    <state width="1394" height="281" key="GridCell.Tab.1.center/1440.900/1440.900" />
+    <state width="1394" height="281" key="GridCell.Tab.1.left" />
+    <state width="1394" height="281" key="GridCell.Tab.1.left/1440.900/1440.900" />
+    <state width="1394" height="281" key="GridCell.Tab.1.right" />
+    <state width="1394" height="281" key="GridCell.Tab.1.right/1440.900/1440.900" />
+    <state x="202" y="56" key="SettingsEditor" />
+    <state x="202" y="56" key="SettingsEditor/1440.900/1440.900" />
+    <state x="383" y="196" width="672" height="678" key="search.everywhere.popup" />
+    <state x="383" y="196" width="672" height="678" key="search.everywhere.popup/1440.900/1440.900" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/pizzapp/model/SqlitePizzaDAO.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

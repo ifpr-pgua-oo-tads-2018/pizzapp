@@ -11,6 +11,8 @@ import pizzapp.model.Cliente;
 import pizzapp.model.Pizza;
 import pizzapp.model.Pizzaria;
 
+import java.sql.SQLException;
+
 public class Principal {
 
 
@@ -51,8 +53,13 @@ public class Principal {
 
     public void initialize(){
 
-        ltvPizzas.setItems(Pizzaria.getInstance().listaCadastro());
-        ltvClientes.setItems(Pizzaria.getInstance().listaClientes());
+        try{
+            ltvPizzas.setItems(Pizzaria.getInstance().listaCadastro());
+            ltvClientes.setItems(Pizzaria.getInstance().listaClientes());
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
 
 
         btAdiciona.setDisable(true);
@@ -67,9 +74,12 @@ public class Principal {
         String sabor = tfSabor.getText();
         double valor = Double.valueOf(tfValor.getText());
 
-        Pizza p = new Pizza(sabor,valor);
+        try{
+            Pizzaria.getInstance().cadastra(sabor,valor);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
 
-        Pizzaria.getInstance().cadastra(p);
 
     }
 
@@ -90,13 +100,23 @@ public class Principal {
     public void buscaPizzas(KeyEvent evt){
 
         if(evt.getCode() == KeyCode.Z && evt.isControlDown()){
-            Pizzaria.getInstance().listaCadastro();
+            try{
+                Pizzaria.getInstance().listaCadastro();
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+
             ((TextField)evt.getSource()).setText("");
         }else{
             String texto = ((TextField)evt.getSource()).getText() + evt.getText();
 
             if(texto.length() >= 3){
-                Pizzaria.getInstance().buscaPizza(texto);
+                try{
+                    Pizzaria.getInstance().buscaPizza(texto);
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
+
             }
         }
     }

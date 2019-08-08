@@ -6,19 +6,8 @@ public class Pizza implements Serializable {
 
 
     private int id;
-    private String nome;
+    private String sabor;
     private double valor;
-
-
-    public Pizza(String nome, double valor) {
-        this(-1,nome,valor);
-    }
-
-    public Pizza(int id,String nome, double valor){
-        this.id = id;
-        this.nome = nome;
-        this.valor = valor;
-    }
 
 
     public int getId() {
@@ -29,12 +18,12 @@ public class Pizza implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getSabor() {
+        return sabor;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setSabor(String sabor) {
+        this.sabor = sabor;
     }
 
     public double getValor() {
@@ -47,6 +36,6 @@ public class Pizza implements Serializable {
 
     @Override
     public String toString() {
-        return  nome;
+        return sabor;
     }
 }
