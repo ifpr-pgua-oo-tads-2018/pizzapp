@@ -19,7 +19,8 @@
     </padding>
 
     <top>
-        <TitledPane animated="true" collapsible="true" text="Cadastro">
+        <VBox>
+        <TitledPane animated="true" collapsible="true" text="Cadastro Pizza">
             <content>
                 <HBox spacing="5">
 
@@ -27,14 +28,32 @@
                     <TextField fx:id="tfSabor" />
                     <Label text="Valor:" />
                     <TextField fx:id="tfValor" />
-                    <Button onAction="#cadastra" text="Cadastra" />
+                    <Button onAction="#cadastraPizza" text="Cadastra" />
                     <padding>
                         <Insets bottom="5.0" top="5.0" />
                     </padding>
                 </HBox>
             </content>
         </TitledPane>
+        <TitledPane animated="true" collapsible="true" text="Cadastro Cliente">
+            <content>
+                <HBox spacing="5">
 
+                    <Label text="Nome:" labelFor="$t"/>
+                    <TextField fx:id="tfNome" />
+                    <Label text="Telefone:" />
+                    <TextField fx:id="tfTelefone" />
+                    <Label text="Ano de Nascimento:" />
+                    <TextField fx:id="tfAnoNascimento" />
+
+                    <Button onAction="#cadastraCliente" text="Cadastra" />
+                    <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                    </padding>
+                </HBox>
+            </content>
+        </TitledPane>
+        </VBox>
     </top>
     <center>
         <TitledPane animated="true" collapsible="true" text="Pedido">
@@ -42,9 +61,22 @@
                 <VBox spacing="5.0">
                     <Button onAction="#abrePedido" text="Novo Pedido" />
                     <HBox spacing="5.0">
-                        <ListView fx:id="ltvPizzas" />
+                        <VBox>
+                            <Label text="Clientes"/>
+                            <TextField fx:id="tfBuscaClientes" promptText="Buscar" onKeyPressed="#buscaClientes"/>
+                            <ListView fx:id="ltvClientes" />
+                        </VBox>
+                        <VBox>
+                            <Label text="Pizzas Disp."/>
+                            <TextField fx:id="tfBuscaPizza" promptText="Buscar" onKeyPressed="#buscaPizzas"/>
+                            <ListView fx:id="ltvPizzas" />
+                        </VBox>
                         <Button fx:id="btAdiciona" onAction="#adicionaPizzaPedido" text="+" />
-                        <ListView fx:id="ltvPedido" />
+                        <VBox>
+                            <Label text="Pizzas Solic."/>
+                            <ListView fx:id="ltvPedido" />
+                        </VBox>
+
                     </HBox>
                     <Text fx:id="txtValorTotal" text="Valor Total:" />
                     <Button fx:id="btFecha" onAction="#fechaPedido" text="Fecha Pedido" />

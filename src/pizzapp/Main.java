@@ -4,7 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import pizzapp.model.Repositorio;
+import pizzapp.model.Pizzaria;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ public class Main extends Application {
         super.init();
 
         try {
-            Repositorio.getInstance().carrega();
+            Pizzaria.getInstance().carrega();
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
@@ -28,7 +28,7 @@ public class Main extends Application {
 
 
         try {
-            Repositorio.getInstance().salva();
+            Pizzaria.getInstance().salva();
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
