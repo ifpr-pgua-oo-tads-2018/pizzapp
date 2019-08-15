@@ -1,10 +1,9 @@
 package pizzapp.control;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
@@ -181,9 +180,29 @@ public class Principal {
         }
 
         txtValorTotal.setText("Valor Total: R$"+ Pizzaria.getInstance().valorPedido());
+    }
+
+    @FXML
+    public void mostraClientes(){
+
+        Dialog<ButtonType> dialog = new Dialog<>();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/detalhesClientes.fxml"));
+        try{
+            Node conteudo = loader.load();
+
+            dialog.getDialogPane().setContent(conteudo);
+
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
+
+            dialog.showAndWait();
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
 
 
     }
-
 
 }

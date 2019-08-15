@@ -1,31 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b60183bc-3556-464d-bd06-25ce7e3a8d90" name="Default" comment="cadastro de clientes">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizzapp/Main2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizzapp/model/ClienteAtributoBusca.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizzapp/model/ClienteDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizzapp/model/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizzapp/model/PedidoDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizzapp/model/PedidoHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizzapp/model/PedidoListHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizzapp/model/SqliteClienteDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizzapp/model/SqlitePedidoDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizzapp/model/Utils.java" afterDir="false" />
+    <list default="true" id="b60183bc-3556-464d-bd06-25ce7e3a8d90" name="Default" comment="clientedao e pedidodao">
+      <change afterPath="$PROJECT_DIR$/resources/view/detalhesClientes.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pizzapp/control/DetalhesCliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/control/Principal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/control/Principal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/model/Pedido.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/model/Pedido.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pizzapp.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/pizzapp.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pizzapp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PizzApp/view/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PizzApp/view/principal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/view/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/view/principal.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pizzapp/control/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/control/Principal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pizzapp/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/model/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pizzapp/model/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/model/Pedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pizzapp/model/PizzaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/model/PizzaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pizzapp/model/Pizzaria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/model/Pizzaria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pizzapp/model/SqlitePizzaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/model/SqlitePizzaDAO.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,20 +60,20 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="UtilizandoDAO" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IgnoredFileRootStore">
     <option name="generatedRoots">
@@ -219,7 +201,7 @@
       <workItem from="1565024053313" duration="31000" />
       <workItem from="1565261414418" duration="3974000" />
       <workItem from="1565283384385" duration="1057000" />
-      <workItem from="1565866723539" duration="1557000" />
+      <workItem from="1565866723539" duration="2747000" />
     </task>
     <task id="LOCAL-00001" summary="código com banco de dados.">
       <created>1564671235685</created>
@@ -235,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565261806264</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="clientedao e pedidodao">
+      <created>1565868716870</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1565868716870</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,7 +246,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="código com banco de dados." />
     <MESSAGE value="cadastro de clientes" />
-    <option name="LAST_COMMIT_MESSAGE" value="cadastro de clientes" />
+    <MESSAGE value="clientedao e pedidodao" />
+    <option name="LAST_COMMIT_MESSAGE" value="clientedao e pedidodao" />
   </component>
   <component name="WindowStateProjectService">
     <state x="453" y="211" width="528" height="488" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" />
