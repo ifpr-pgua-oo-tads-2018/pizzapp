@@ -7,6 +7,11 @@ public class Cliente {
     private String telefone;
     private int anoNascimento;
 
+
+    public Cliente(){
+
+    }
+
     public Cliente( String nome, String telefone, int anoNascimento) {
         this.id = id;
         this.nome = nome;

@@ -14,11 +14,7 @@ public class Main extends Application {
     public void init() throws Exception {
         super.init();
 
-        try {
-            Pizzaria.getInstance().carrega();
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }
+
 
     }
 
@@ -27,11 +23,6 @@ public class Main extends Application {
         super.stop();
 
 
-        try {
-            Pizzaria.getInstance().salva();
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }
 
     }
 

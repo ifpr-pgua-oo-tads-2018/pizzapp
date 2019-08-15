@@ -18,7 +18,8 @@ public class Pizzaria {
     private Pedido pedidoAtual = null;
 
     private PizzaDAO pizzaDAO = new SqlitePizzaDAO();
-
+    private ClienteDAO clienteDAO = new SqliteClienteDAO();
+    private PedidoDAO pedidoDAO = new SqlitePedidoDAO();
 
     private static Pizzaria instance = new Pizzaria();
 
@@ -32,7 +33,7 @@ public class Pizzaria {
         return instance;
     }
 
-    public void cadastra(String nome, double valor) throws SQLException{
+    public void cadastraPizza(String nome, double valor) throws SQLException{
         Pizza p = new Pizza();
         p.setSabor(nome);
         p.setValor(valor);
@@ -41,29 +42,17 @@ public class Pizzaria {
 
         p.setId((int)id);
 
+        cadastro.add(p);
     }
 
-    public void cadastraCliente(Cliente c){
-        try{
-            Connection con = FabricaConexao.getConnection();
+    public void cadastraCliente(String nome, String telefone, int anoNascimento) throws SQLException{
+        Cliente c = new Cliente(nome,telefone,anoNascimento);
 
-            PreparedStatement stm = con.prepareStatement("INSERT INTO CLIENTES(NOME,TELEFONE,ANO_NASCIMENTO) VALUES (?,?,?)");
+        long id = clienteDAO.insere(c);
 
-            stm.setString(1,c.getNome());
-            stm.setString(2,c.getTelefone());
-            stm.setInt(3,c.getAnoNascimento());
+        c.setId((int)id);
 
-            stm.executeUpdate();
-
-            stm.close();
-            con.close();
-
-
-            clientes.add(c);
-
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+        clientes.add(c);
     }
 
 
@@ -118,72 +107,20 @@ public class Pizzaria {
         return cadastro;
     }
 
-    public ObservableList buscaCliente(String texto){
+    public ObservableList buscaCliente(ClienteAtributoBusca atributoBusca, Object valor) throws SQLException{
         clientes.clear();
 
-        try{
-
-            Connection con = FabricaConexao.getConnection();
-
-            PreparedStatement stm = con.prepareStatement("SELECT * FROM CLIENTES where NOME like ?");
-
-            stm.setString(1,"%"+texto+"%");
-
-            ResultSet res = stm.executeQuery();
-
-            while(res.next()){
-                int id = res.getInt("ID");
-                String nome = res.getString("NOME");
-                String telefone = res.getString("NOME");
-                int anoNascimento = res.getInt("ANO_NASCIMENTO");
-
-                Cliente c = new Cliente(id,nome,telefone,anoNascimento);
-
-                clientes.add(c);
-            }
-
-            res.close();
-            stm.close();
-            con.close();
-
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+        clientes.addAll(clienteDAO.buscaAtributo(atributoBusca,valor));
 
         return clientes;
     }
 
 
 
-    public ObservableList listaClientes(){
+    public ObservableList listaClientes() throws SQLException{
         clientes.clear();
 
-        try{
-
-            Connection con = FabricaConexao.getConnection();
-
-            Statement stm = con.createStatement();
-
-            ResultSet res = stm.executeQuery("SELECT * FROM CLIENTES");
-
-            while(res.next()){
-                int id = res.getInt("ID");
-                String nome = res.getString("NOME");
-                String telefone = res.getString("TELEFONE");
-                int anoNascimento =res.getInt("ANO_NASCIMENTO");
-
-                Cliente c = new Cliente(id,nome,telefone,anoNascimento);
-
-                clientes.add(c);
-            }
-
-            res.close();
-            stm.close();
-            con.close();
-
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+        clientes.addAll(clienteDAO.buscaTodos());
 
         return clientes;
     }

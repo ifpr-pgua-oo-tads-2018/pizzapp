@@ -17,19 +17,23 @@ public class SqlitePizzaDAO implements PizzaDAO {
     @Override
     public long insere(Pizza p) throws SQLException {
 
-        Connection connection = FabricaConexao.getConnection();
+
+
+        /*Connection connection = FabricaConexao.getConnection();
 
         long id = dbAccess.insert(connection,"INSERT INTO Pizzas(sabor,valor) VALUES (?,?)",
                             new ScalarHandler<BigDecimal>(),p.getSabor(),p.getValor()).longValue();
 
-        connection.close();
-        return id;
+        connection.close();*/
+        throw new SQLException("SQL Inválido...");
+        //return id;
     }
 
     @Override
     public boolean atualiza(Pizza p) throws SQLException {
         Connection connection = FabricaConexao.getConnection();
-        dbAccess.update(connection,"UPDATE Pizzas SET sabor=?, valor=? WHERE id=?",p.getSabor(),p.getValor(),p.getId());
+        dbAccess.update(connection,"UPDATE Pizzas SET sabor=?, valor=? WHERE id=?",
+                p.getSabor(),p.getValor(),p.getId());
         connection.close();
         return true;
     }
@@ -46,7 +50,8 @@ public class SqlitePizzaDAO implements PizzaDAO {
     public Pizza buscaId(int id) throws SQLException {
         Connection connection = FabricaConexao.getConnection();
 
-        Pizza p =dbAccess.query(connection,"SELECT * FROM Pizzas WHERE id=?",new BeanHandler<Pizza>(Pizza.class),id);
+        Pizza p =dbAccess.query(connection,"SELECT * FROM Pizzas WHERE id=?",
+                new BeanHandler<Pizza>(Pizza.class),id);
 
         connection.close();
         return p;
@@ -66,7 +71,8 @@ public class SqlitePizzaDAO implements PizzaDAO {
         }
 
         Connection connection = FabricaConexao.getConnection();
-        List<Pizza> lista = dbAccess.query(connection,"SELECT * FROM Pizzas "+where,new BeanListHandler<Pizza>(Pizza.class),valorWhere);
+        List<Pizza> lista = dbAccess.query(connection,"SELECT * FROM Pizzas "+where,
+                new BeanListHandler<Pizza>(Pizza.class),valorWhere);
 
         connection.close();
 
@@ -79,7 +85,8 @@ public class SqlitePizzaDAO implements PizzaDAO {
     public List<Pizza> buscaTodos() throws SQLException {
         Connection connection = FabricaConexao.getConnection();
 
-        List<Pizza> lista = dbAccess.query(connection,"SELECT * FROM Pizzas",new BeanListHandler<Pizza>(Pizza.class));
+        List<Pizza> lista = dbAccess.query(connection,"SELECT * FROM Pizzas",
+                new BeanListHandler<Pizza>(Pizza.class));
 
         connection.close();
 

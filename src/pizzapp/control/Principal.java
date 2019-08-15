@@ -1,6 +1,7 @@
 package pizzapp.control;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -8,9 +9,12 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import pizzapp.model.Cliente;
+import pizzapp.model.ClienteAtributoBusca;
 import pizzapp.model.Pizza;
 import pizzapp.model.Pizzaria;
 
+import javax.swing.*;
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class Principal {
@@ -75,9 +79,11 @@ public class Principal {
         double valor = Double.valueOf(tfValor.getText());
 
         try{
-            Pizzaria.getInstance().cadastra(sabor,valor);
+            Pizzaria.getInstance().cadastraPizza(sabor,valor);
         }catch (SQLException e){
-            e.printStackTrace();
+            //e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR,"Problema ao inserir a pizza \n"+e.getMessage());
+            alert.showAndWait();
         }
 
 
@@ -90,9 +96,12 @@ public class Principal {
         String telefone = tfTelefone.getText();
         int anoNascimento = Integer.valueOf(tfAnoNascimento.getText());
 
-        Cliente c = new Cliente(nome,telefone,anoNascimento);
-
-        Pizzaria.getInstance().cadastraCliente(c);
+        try{
+            Pizzaria.getInstance().cadastraCliente(nome,telefone,anoNascimento);
+        }catch (SQLException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR,"Problema ao inserir o cliente \n"+e.getMessage());
+            alert.showAndWait();
+        }
 
     }
 
@@ -123,17 +132,21 @@ public class Principal {
 
     @FXML
     public void buscaClientes(KeyEvent evt){
+        try{
+            if(evt.getCode() == KeyCode.Z && evt.isControlDown()){
+                Pizzaria.getInstance().listaClientes();
+                ((TextField)evt.getSource()).setText("");
+            }else{
+                String texto = ((TextField)evt.getSource()).getText() + evt.getText();
 
-        if(evt.getCode() == KeyCode.Z && evt.isControlDown()){
-            Pizzaria.getInstance().listaClientes();
-            ((TextField)evt.getSource()).setText("");
-        }else{
-            String texto = ((TextField)evt.getSource()).getText() + evt.getText();
-
-            if(texto.length() >= 3){
-                Pizzaria.getInstance().buscaCliente(texto);
+                if(texto.length() >= 3){
+                    Pizzaria.getInstance().buscaCliente(ClienteAtributoBusca.NOME,texto);
+                }
             }
+        }catch (SQLException e){
+
         }
+
     }
 
 
