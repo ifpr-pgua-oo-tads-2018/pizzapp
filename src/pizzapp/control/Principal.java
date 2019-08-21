@@ -12,7 +12,6 @@ import pizzapp.model.ClienteAtributoBusca;
 import pizzapp.model.Pizza;
 import pizzapp.model.Pizzaria;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -201,8 +200,48 @@ public class Principal {
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
 
+    @FXML
+    public void mostraPizzas(){
 
+        Dialog<ButtonType> dialog = new Dialog<>();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/detalhesPizzas.fxml"));
+        try{
+            Node conteudo = loader.load();
+
+            dialog.getDialogPane().setContent(conteudo);
+
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
+
+            dialog.showAndWait();
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void mostraPedidos(){
+
+        Dialog<ButtonType> dialog = new Dialog<>();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/detalhesPedidos.fxml"));
+        try{
+            Node conteudo = loader.load();
+
+            dialog.getDialogPane().setContent(conteudo);
+
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
+
+            dialog.showAndWait();
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 }

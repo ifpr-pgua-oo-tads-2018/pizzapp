@@ -84,6 +84,15 @@ public class Pizzaria {
         return pedidoAtual.getPedido();
     }
 
+    public ObservableList listaPedidos() throws SQLException{
+        ObservableList<Pedido> pedidos = FXCollections.observableArrayList();
+
+        pedidos.addAll(pedidoDAO.buscaTodos());
+
+        return pedidos;
+    }
+
+
     public double valorPedido(){
         return pedidoAtual.getValor();
     }

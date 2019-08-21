@@ -26,6 +26,8 @@
                 <Menu text="Arquivo">
                     <items>
                         <MenuItem text="Clientes" onAction="#mostraClientes"/>
+                        <MenuItem text="Pizzas" onAction="#mostraPizzas"/>
+                        <MenuItem text="Pedidos" onAction="#mostraPedidos"/>
                     </items>
                 </Menu>
             </menus>

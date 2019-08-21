@@ -7,9 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import pizzapp.model.Cliente;
-import pizzapp.model.ClienteDAO;
 import pizzapp.model.Pizzaria;
-import pizzapp.model.SqliteClienteDAO;
 
 import java.sql.SQLException;
 
@@ -42,11 +40,5 @@ public class DetalhesCliente {
             Alert alert = new Alert(Alert.AlertType.ERROR,"Problema ao buscar clientes \n"+e.getMessage());
             alert.showAndWait();
         }
-
-
-
-
     }
-
-
 }

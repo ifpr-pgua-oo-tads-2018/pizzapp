@@ -2,12 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b60183bc-3556-464d-bd06-25ce7e3a8d90" name="Default" comment="clientedao e pedidodao">
-      <change afterPath="$PROJECT_DIR$/resources/view/detalhesClientes.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizzapp/control/DetalhesCliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/view/detalhesPedidos.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/view/detalhesPizzas.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pizzapp/control/DetalhesPedidos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pizzapp/control/DetalhesPizzas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/control/Principal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/control/Principal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/model/Pedido.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PizzApp/pizzapp/model/Pedido.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PizzApp/view/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PizzApp/view/principal.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/view/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/view/principal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pizzapp/control/DetalhesCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/control/DetalhesCliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pizzapp/control/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/control/Principal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pizzapp/model/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/model/Pedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pizzapp/model/Pizzaria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/model/Pizzaria.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +97,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pizzapp.sqlite" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/view" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -101,7 +108,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="pizzapp.control" />
       <recent name="pizzapp.model" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/view" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -247,7 +258,8 @@
     <MESSAGE value="código com banco de dados." />
     <MESSAGE value="cadastro de clientes" />
     <MESSAGE value="clientedao e pedidodao" />
-    <option name="LAST_COMMIT_MESSAGE" value="clientedao e pedidodao" />
+    <MESSAGE value="modificando para multiplos sgbds. utilizando strings para armazenar os comandos sql." />
+    <option name="LAST_COMMIT_MESSAGE" value="modificando para multiplos sgbds. utilizando strings para armazenar os comandos sql." />
   </component>
   <component name="WindowStateProjectService">
     <state x="453" y="211" width="528" height="488" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" />
