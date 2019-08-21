@@ -7,6 +7,7 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
+import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -14,6 +15,19 @@ import java.util.List;
 import java.util.Map;
 
 public class SqliteClienteDAO implements ClienteDAO {
+
+    private static String TABELA="clientes";
+    private static String CAMPO_NOME="nome";
+    private static String CAMPO_NASCIMENTO="ano_nascimento";
+    private static String CAMPO_TELEFONE="telefone";
+    private static String CAMPO_ID="id";
+
+    private static String INSERT="INSERT INTO "+TABELA+"("+CAMPO_NOME+","+CAMPO_TELEFONE+","+CAMPO_NASCIMENTO+") VALUES (?,?,?)";
+    private static String UPDATE="UPDATE "+TABELA+" SET "+CAMPO_NOME+"=?,"+CAMPO_TELEFONE+"=?,"+CAMPO_NASCIMENTO+"=? WHERE"+CAMPO_ID+"=?";
+    private static String DELETE="DELETE FROM "+TABELA+" WHERE "+CAMPO_ID+"=?";
+    private static String SELECT="SELECT * FROM "+TABELA;
+    private static String SELECT_ID="SELECT * FROM "+TABELA+" WHERE "+CAMPO_ID+"=?";
+
 
     private QueryRunner dbAccess = new QueryRunner();
 
@@ -29,10 +43,10 @@ public class SqliteClienteDAO implements ClienteDAO {
     public long insere(Cliente cliente) throws SQLException {
         Connection con = FabricaConexao.getConnection();
 
-        int id = dbAccess.insert(con,"INSERT INTO CLIENTES(NOME,TELEFONE,ANO_NASCIMENTO) VALUES (?,?,?)",
-                new ScalarHandler<Integer>(),cliente.getNome(),cliente.getTelefone(),cliente.getTelefone(),cliente.getAnoNascimento());
+        long id = dbAccess.insert(con,INSERT,
+                new ScalarHandler<BigInteger>(),cliente.getNome(),cliente.getTelefone(),cliente.getAnoNascimento()).longValue();
 
-        cliente.setId(id);
+        cliente.setId((int)id);
 
         con.close();
 
@@ -43,7 +57,7 @@ public class SqliteClienteDAO implements ClienteDAO {
     public boolean atualiza(Cliente p) throws SQLException {
         Connection con = FabricaConexao.getConnection();
 
-        dbAccess.update(con,"UPDATE Clientes SET NOME=?,TELEFONE=?,ANO_NASCIMENTO=? WHERE id=?"
+        dbAccess.update(con,UPDATE
                 ,p.getNome(),p.getTelefone(),p.getAnoNascimento(),p.getId());
 
         con.close();
@@ -54,7 +68,7 @@ public class SqliteClienteDAO implements ClienteDAO {
     public boolean deleta(Cliente p) throws SQLException {
         Connection con = FabricaConexao.getConnection();
 
-        dbAccess.update(con,"DELETE FROM Clientes WHERE id=?",p.getId());
+        dbAccess.update(con,DELETE,p.getId());
 
         con.close();
         return true;
@@ -71,20 +85,20 @@ public class SqliteClienteDAO implements ClienteDAO {
 
         switch (atributo){
             case NOME:
-                where = "nome like ?";
+                where = CAMPO_NOME+" like ?";
                 wValor = "%"+valor.toString()+"%";
                 break;
             case TELEFONE:
-                where = "telefone like ?";
+                where = CAMPO_TELEFONE+" like ?";
                 wValor = valor.toString();
                 break;
             case ANO_NASCIMENTO:
-                where = "ano_nascimento = ?";
+                where = CAMPO_NASCIMENTO+" = ?";
                 wValor = valor.toString();
                 break;
         }
 
-        List<Cliente> list = dbAccess.query(con,"SELECT * FROM Clientes WHERE "+where,handler,wValor);
+        List<Cliente> list = dbAccess.query(con,SELECT+" WHERE "+where,handler,wValor);
 
         con.close();
 
@@ -99,7 +113,7 @@ public class SqliteClienteDAO implements ClienteDAO {
 
         BeanHandler<Cliente> handler = new BeanHandler<Cliente>(Cliente.class,new BasicRowProcessor(new BeanProcessor(getColumnsToFieldsMap())));
 
-        Cliente c = dbAccess.query(con,"SELECT * FROM Clientes WHERE id=?",handler,id);
+        Cliente c = dbAccess.query(con,SELECT_ID,handler,id);
 
         con.close();
 
@@ -113,7 +127,7 @@ public class SqliteClienteDAO implements ClienteDAO {
 
         BeanListHandler<Cliente> handler = new BeanListHandler<Cliente>(Cliente.class,new BasicRowProcessor(new BeanProcessor(getColumnsToFieldsMap())));
 
-        List<Cliente> list = dbAccess.query(con,"SELECT * FROM Clientes",handler);
+        List<Cliente> list = dbAccess.query(con,SELECT,handler);
 
         con.close();
 

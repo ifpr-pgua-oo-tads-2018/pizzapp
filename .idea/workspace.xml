@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b60183bc-3556-464d-bd06-25ce7e3a8d90" name="Default" comment="clientedao e pedidodao">
-      <change afterPath="$PROJECT_DIR$/resources/view/detalhesClientes.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizzapp/control/DetalhesCliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PizzApp/view/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PizzApp/view/principal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/view/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/view/principal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pizzapp/control/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/control/Principal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PizzApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PizzApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pizzapp.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/pizzapp.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pizzapp/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pizzapp/model/FabricaConexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/model/FabricaConexao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pizzapp/model/SqliteClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/model/SqliteClienteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pizzapp/model/SqlitePizzaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pizzapp/model/SqlitePizzaDAO.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +71,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="UtilizandoDAO" />
+        <entry key="$PROJECT_DIR$" value="Table" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -90,7 +91,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pizzapp.sqlite" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mysql-connector-java-8.0.17.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -178,7 +179,7 @@
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main2" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main2" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -202,6 +203,7 @@
       <workItem from="1565261414418" duration="3974000" />
       <workItem from="1565283384385" duration="1057000" />
       <workItem from="1565866723539" duration="2747000" />
+      <workItem from="1566422519459" duration="3640000" />
     </task>
     <task id="LOCAL-00001" summary="código com banco de dados.">
       <created>1564671235685</created>
@@ -283,84 +285,11 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/pizzapp/model/SqlitePizzaDAO.java</url>
-          <line>85</line>
+          <url>file://$PROJECT_DIR$/src/pizzapp/control/Principal.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>PizzApp</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

@@ -16,6 +16,7 @@ public class Cliente {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
+        this.anoNascimento = anoNascimento;
     }
 
     public Cliente(int id, String nome, String telefone, int anoNascimento) {
