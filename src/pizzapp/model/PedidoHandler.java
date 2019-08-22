@@ -54,7 +54,7 @@ public class PedidoHandler implements ResultSetHandler<Pedido> {
 
 
     private void buscaPizzasPedido(Pedido p) throws SQLException{
-        PizzaDAO pizzaDAO = new SqlitePizzaDAO();
+        PizzaDAO pizzaDAO = new JDBCPizzaDAO();
 
         Connection con = FabricaConexao.getConnection();
 
@@ -66,7 +66,7 @@ public class PedidoHandler implements ResultSetHandler<Pedido> {
             int idPizza = rs.getInt("idPizza");
             double valor = rs.getDouble("valor");
 
-            Pizza pizza = ((SqlitePizzaDAO) pizzaDAO).buscaId(idPizza);
+            Pizza pizza = ((JDBCPizzaDAO) pizzaDAO).buscaId(idPizza);
             pizza.setValor(valor);
 
             p.add(pizza);

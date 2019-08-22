@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SqliteClienteDAO implements ClienteDAO {
+public class JDBCClienteDAO implements ClienteDAO {
 
     private static String TABELA="clientes";
     private static String CAMPO_NOME="nome";

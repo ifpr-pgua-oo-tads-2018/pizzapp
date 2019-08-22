@@ -11,7 +11,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-public class SqlitePizzaDAO implements PizzaDAO {
+public class JDBCPizzaDAO implements PizzaDAO {
 
     private static String TABELA="pizzas";
     private static String CAMPO_SABOR="sabor";

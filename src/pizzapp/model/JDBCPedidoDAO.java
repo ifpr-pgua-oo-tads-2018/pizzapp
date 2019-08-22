@@ -1,16 +1,13 @@
 package pizzapp.model;
 
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class SqlitePedidoDAO implements PedidoDAO{
+public class JDBCPedidoDAO implements PedidoDAO{
 
     private QueryRunner dbAccess = new QueryRunner();
 
@@ -50,7 +47,7 @@ public class SqlitePedidoDAO implements PedidoDAO{
 
         Connection con = FabricaConexao.getConnection();
 
-        Pedido p = dbAccess.query(con,"SELECT * FROM Pedidos WHERE id=?",new PedidoHandler(new SqliteClienteDAO()),id);
+        Pedido p = dbAccess.query(con,"SELECT * FROM Pedidos WHERE id=?",new PedidoHandler(new JDBCClienteDAO()),id);
 
         con.close();
 
@@ -61,7 +58,7 @@ public class SqlitePedidoDAO implements PedidoDAO{
     public List<Pedido> buscaTodos() throws SQLException {
         Connection connection = FabricaConexao.getConnection();
 
-        List<Pedido> lista = dbAccess.query(connection,"SELECT * FROM Pedidos",new PedidoListHandler(new SqliteClienteDAO()));
+        List<Pedido> lista = dbAccess.query(connection,"SELECT * FROM Pedidos",new PedidoListHandler(new JDBCClienteDAO()));
 
         return lista;
     }

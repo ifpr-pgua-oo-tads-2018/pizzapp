@@ -17,9 +17,9 @@ public class Pizzaria {
 
     private Pedido pedidoAtual = null;
 
-    private PizzaDAO pizzaDAO = new SqlitePizzaDAO();
-    private ClienteDAO clienteDAO = new SqliteClienteDAO();
-    private PedidoDAO pedidoDAO = new SqlitePedidoDAO();
+    private PizzaDAO pizzaDAO = new JDBCPizzaDAO();
+    private ClienteDAO clienteDAO = new JDBCClienteDAO();
+    private PedidoDAO pedidoDAO = new JDBCPedidoDAO();
 
     private static Pizzaria instance = new Pizzaria();
 
