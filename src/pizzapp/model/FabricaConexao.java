@@ -30,7 +30,7 @@ public class FabricaConexao {
         if(SGBD == Sgbds.mysql){
             CON_STRING="jdbc:"+SGBD.name()+"://"+IP_SERVIDOR+"/"+NOME_BANCO;
         }else{
-            CON_STRING="jdbc:"+SGBD.name()+":"+NOME_BANCO;
+            CON_STRING="jdbc:"+SGBD.name()+":"+NOME_BANCO+".sqlite";
         }
 
         pool = new Connection[MAX_CONNECTIONS];
